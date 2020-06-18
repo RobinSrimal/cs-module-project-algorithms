@@ -5,7 +5,9 @@ Returns: an integer
 def single_number(arr):
     # Your code here
 
-    pass
+    total_sum = sum(arr)
+
+    return sum(set(arr))*2 - sum(arr)
 
 
 if __name__ == '__main__':

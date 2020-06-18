@@ -5,7 +5,33 @@ import sys
 def making_change(amount, denominations):
   # Your code here
 
-  pass
+  lookup = {0:1,1:1,2:1,3:1,4:1,5:2}
+
+  for i in range(amount+1):
+
+    if i < 5:
+
+      continue
+
+    elif 4 < i < 10:
+
+      lookup[i] = lookup[i-1] + lookup[i-5]
+
+    elif 9 < i < 25:
+
+      lookup[i] = lookup[i-1] + lookup[i-5] + lookup[i-10]
+
+    elif 24 < i < 50:
+
+      lookup[i] = lookup[i-1] + lookup[i-5] + lookup[i-10] + lookup[i-25]
+
+    else:
+
+      lookup[i] = lookup[i-1] + lookup[i-5] + lookup[i-10] + lookup[i-25] + lookup[i-50]
+
+  return lookup[amount]
+
+
 
 
 if __name__ == "__main__":

@@ -5,7 +5,43 @@ Returns: a List of integers
 def product_of_all_other_numbers(arr):
     # Your code here
 
-    pass
+    length = len(arr)
+
+    total_product = 1 
+
+    index_zeros = []
+
+    for index,number in enumerate(arr):
+
+        if number == 0:
+
+            index_zeros.append(index)
+
+        else:
+
+            total_product = total_product*number
+
+    
+    if len(index_zeros) == 1:
+
+        arr = [0]*length
+
+        arr[index_zeros[0]] = total_product
+
+        return arr
+    
+    elif len(index_zeros) > 1:
+
+        return [0]*length
+
+
+    else:
+
+        return [total_product/number for number in arr]
+
+    
+
+
 
 
 if __name__ == '__main__':
